@@ -11,8 +11,6 @@ var Stack = function(){
   someInstance.push = function(value){
     //add keys to storage obj
     storage[value] = value;
-    //sets last variable to last added to storage object
-    last = Object.keys(storage)[Object.keys(storage).length - 1];
     //increment count - everytime we call someInstance.push, count will increase by one
     count++;
   };
@@ -20,6 +18,10 @@ var Stack = function(){
   someInstance.pop = function(){
     //decrease count by 1 each time someInstance.pop is called
     count--;
+    //sets last variable to last added to storage object
+    last = Object.keys(storage)[Object.keys(storage).length - 1];
+    //remove last item from storage
+    delete storage[Object.keys(storage)[count]];
     //return last
     return last;
   };
