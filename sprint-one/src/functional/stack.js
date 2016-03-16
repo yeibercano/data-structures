@@ -18,9 +18,13 @@ var Stack = function(){
   };
 
   someInstance.size = function(){
-    //return count
-    return count;
-  };
+    //if count is 0 return 0 otherwise return count
+    if (count <= 0) {
+      return 0;
+    } else {
+      return count
+    };
+  }
 
   return someInstance;
 };
