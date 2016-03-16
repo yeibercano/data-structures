@@ -13,6 +13,8 @@ var Stack = function(){
   };
 
   someInstance.pop = function(){
+    //decrease count by 1 each time someInstance.pop is called
+    count--;
   };
 
   someInstance.size = function(){
