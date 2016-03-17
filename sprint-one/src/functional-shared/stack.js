@@ -7,7 +7,7 @@ var Stack = function() {
   //add new methods to obj 
   obj.counter = 0;
   obj.moreObj = {};
-  obj.last = 'hi';
+  obj.last = obj.moreObj[Object.keys(obj.moreObj).length - 1];
   _.extend(obj, stackMethods);
   // console.log('counter inside stack:', counter)
   // console.log('obj inside stack:', obj);
@@ -32,8 +32,8 @@ stackMethods.push = function(value) {
 //create pop method
 stackMethods.pop = function() {
   console.log('pop is in here');
-
   this.counter = this.counter - 1;
+  return this.last;
 }
 
 //add methods to stackMethods
