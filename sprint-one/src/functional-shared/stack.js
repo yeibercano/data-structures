@@ -4,14 +4,14 @@ var Stack = function() {
   //create a counter variable
   // create empty obj
   var obj = {};
-  //add new methods to obj 
+  //create the property obj.counter to keep track of counter
   obj.counter = 0;
+  //created the property to hold pushed objects
   obj.moreObj = {};
-  obj.last = obj.moreObj[Object.keys(obj.moreObj).length - 1];
+  //created obj.last to reference the last pushed item -- still in progress
+  //use _.extend to inherit the stackMethods method
   _.extend(obj, stackMethods);
-  // console.log('counter inside stack:', counter)
-  // console.log('obj inside stack:', obj);
-  console.log('obj:', obj);
+  obj.last;
   //return obj
   return obj;
 };
@@ -19,27 +19,27 @@ var Stack = function() {
 var stackMethods = {};
 //create push method
 stackMethods.push = function(value) {
-  console.log('push was invoked')
   //counter increases everytime with each push invocation
   this.counter = this.counter + 1;
-  console.log('this is value:', value);
-  //push into obj
-  this.moreObj.value = value;
-  console.log('this is after push:', this.moreObj)
-  console.log('this is last:', this.last);
+  //push into obj.moreObj
+  this.moreObj[value] = value;
   
 };
 //create pop method
 stackMethods.pop = function() {
-  console.log('pop is in here');
+  //assign this.last to hold the last item in the obj.more key
+  this.last = Object.keys(this.moreObj)[Object.keys(this.moreObj).length - 1];
+  //this.counter will decrement obj.counter by 1
   this.counter = this.counter - 1;
+  //delete the last item added to more.obj
+  delete this.moreObj[Object.keys(this.moreObj)[Object.keys(this.moreObj).length - 1]];
+  //return this.last
   return this.last;
 }
 
 //add methods to stackMethods
 stackMethods.size = function() {
-  console.log('size was invoked');
-  //stack method size returns counter
+  //conditional statement needed to check if counter is equal to your less than 0, if so return 0, if not, return obj.counter
   if (this.counter <= 0) {
     return 0;
   } else {
@@ -48,4 +48,3 @@ stackMethods.size = function() {
 
 };
 
-//counter decreases everytime with each pop invocation
