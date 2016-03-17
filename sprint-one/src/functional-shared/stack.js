@@ -8,10 +8,10 @@ var Stack = function() {
   obj.counter = 0;
   //created the property to hold pushed objects
   obj.moreObj = {};
-  //created obj.last to reference the last pushed item -- still in progress
+  //created obj.last to reference the last pushed item 
+  obj.last;
   //use _.extend to inherit the stackMethods method
   _.extend(obj, stackMethods);
-  obj.last;
   //return obj
   return obj;
 };
@@ -20,7 +20,7 @@ var stackMethods = {};
 //create push method
 stackMethods.push = function(value) {
   //counter increases everytime with each push invocation
-  this.counter = this.counter + 1;
+  this.counter++;
   //push into obj.moreObj
   this.moreObj[value] = value;
   
@@ -30,7 +30,7 @@ stackMethods.pop = function() {
   //assign this.last to hold the last item in the obj.more key
   this.last = Object.keys(this.moreObj)[Object.keys(this.moreObj).length - 1];
   //this.counter will decrement obj.counter by 1
-  this.counter = this.counter - 1;
+  this.counter--;
   //delete the last item added to more.obj
   delete this.moreObj[Object.keys(this.moreObj)[Object.keys(this.moreObj).length - 1]];
   //return this.last

@@ -7,9 +7,9 @@ var Queue = function(){
   //created the property to hold enqueueed objects
   obj.moreObj = {};
   //created obj.first to reference the first enqueueed item -- still in progress
+  obj.first;
   //use _.extend to inherit the queueMethods method
   _.extend(obj, queueMethods);
-  obj.first;
   //return obj
   return obj;
 };
@@ -18,7 +18,7 @@ var queueMethods = {};
 
 queueMethods.enqueue = function(value) {
   //counter increases everytime with each enqueue invocation
-  this.counter = this.counter + 1;
+  this.counter++;
   //enqueue into obj.moreObj
   this.moreObj[value] = value;
   
@@ -28,7 +28,7 @@ queueMethods.dequeue = function() {
   //assign this.first to hold the first item in the obj.more key
   this.first = Object.keys(this.moreObj)[0];
   //this.counter will decrement obj.counter by 1
-  this.counter = this.counter - 1;
+  this.counter--;
   //delete the first item added to more.obj
   delete this.moreObj[Object.keys(this.moreObj)[0]];
   //return this.first
