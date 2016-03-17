@@ -24,7 +24,6 @@ var Queue = function(){
     first = Object.keys(storage)[0];
     //remove last item in storage
     delete storage[Object.keys(storage)[0]];
-    console.log('storage:', storage)
     return first;
   };
 
