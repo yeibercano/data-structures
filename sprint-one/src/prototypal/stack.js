@@ -4,9 +4,10 @@ var Stack = function() {
 
   //create a new object 
   var newStack = Object.create(stackMethods);
-
+  //create counter for newStack
   newStack.counter = 0   
-
+  //create a variable to hold last item
+  newStack.last;
   //return newStack
   return newStack;
 };
@@ -21,13 +22,21 @@ stackMethods.push = function(value) {
 };  
 //create a pop method
 stackMethods.pop = function() {
-
+  //assign this.last variable to the last item in the newStack object
+  this.last = Object.keys(this)[Object.keys(this).length - 1];
+  //delete the last item from the instance of the object
+  console.log('this::', this)
+  // delete this[Object.keys(this)[Object.keys(this).length - 1]];
+  //decrease counter by 1
+  this.counter--;
+  //return the newStack.last
+  return this.last;
 };
 
 //create size method
 stackMethods.size = function() {
-  //return 0
-  if(this.counter === 0) {
+  //checks counter to see if less than or equal to 0, if so, return 0, else return this.counter
+  if(this.counter <= 0) {
     return 0;
   } else {
     return this.counter; 
