@@ -10,6 +10,11 @@ list.addToTail = function(value){
 
     //invoke Node and assign it to list.tail, this creates the node simultaneously and stores its value in tail
     list.tail = Node(value);
+    //check if list.head is equal to null
+    if (list.head === null) {
+    //invoke Node and assign it to list.head, this creates the node simultaneously and stores its value in head
+      list.head = list.tail;
+    }
     //add the node object into the list
     list[value] = list.tail;
     //assign list.tail to equal the added item
@@ -18,6 +23,8 @@ list.addToTail = function(value){
 };
 
 list.removeHead = function(){
+  //list.head = Node(Object.keys(this)[0])
+  // console.log(list.head);
   };
 
   list.contains = function(target){
