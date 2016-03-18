@@ -24,12 +24,12 @@ stackMethods.push = function(value) {
 };  
 //create a pop method
 stackMethods.pop = function() {
-  //assign this.last variable to the last item in the newStack object
-  this.last = Object.keys(this.tempObj)[Object.keys(this.tempObj).length - 1];
-  //delete the last item from the instance of the object
-  console.log('this::', this)
-  //delete the last item in object
-  delete this.tempObj[Object.keys(this.tempObj)[Object.keys(this.tempObj).length - 1]];
+  //create a variable to reference the last item in tempObj
+  lastItem = Object.keys(this.tempObj)[Object.keys(this.tempObj).length - 1];
+  //assign this.last variable to the last item in the newStack key
+  this.last = lastItem;
+  //delete the last item in tempObj key
+  delete this.tempObj[lastItem];
   //decrease counter by 1
   this.counter--;
   //return the newStack.last

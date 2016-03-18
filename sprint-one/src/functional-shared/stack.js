@@ -27,12 +27,14 @@ stackMethods.push = function(value) {
 };
 //create pop method
 stackMethods.pop = function() {
+  //create a variable to reference the last item in obj.more key
+  lastItem = Object.keys(this.moreObj)[Object.keys(this.moreObj).length - 1];
   //assign this.last to hold the last item in the obj.more key
-  this.last = Object.keys(this.moreObj)[Object.keys(this.moreObj).length - 1];
+  this.last = lastItem;
   //this.counter will decrement obj.counter by 1
   this.counter--;
   //delete the last item added to more.obj
-  delete this.moreObj[Object.keys(this.moreObj)[Object.keys(this.moreObj).length - 1]];
+  delete this.moreObj[lastItem];
   //return this.last
   return this.last;
 }

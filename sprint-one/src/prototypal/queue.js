@@ -24,10 +24,12 @@ queueMethods.enqueue = function(value) {
 };  
 //create a dequeue method
 queueMethods.dequeue = function() {
-  //assign this.first variable to the first item in the newQueue object
-  this.first = Object.keys(this.tempObj)[0];
+  //create a variable to reference the first item in the newQueue key
+  var firstItem = Object.keys(this.tempObj)[0];
+  //assign this.first variable to the first item in the newQueue key
+  this.first = firstItem;
   //delete the first item from the instance of the object
-  delete this.tempObj[Object.keys(this.tempObj)[0]];
+  delete this.tempObj[firstItem];
   //decrease counter by 1
   this.counter--;
   //return the newQueue.first
