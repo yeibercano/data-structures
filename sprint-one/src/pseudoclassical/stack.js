@@ -10,10 +10,15 @@ var Stack = function() {
 Stack.prototype.push = function() {
   // increase counter incremently whenever push method is invoked
   this.counter++;
+};
+
+//create a pop method
+Stack.prototype.pop = function() {
+  
 }
 
 //create a size method
 Stack.prototype.size = function() {
   //return this.counter
   return this.counter;
-}
+};
