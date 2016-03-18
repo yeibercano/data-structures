@@ -3,4 +3,7 @@ var Stack = function() {
   // but try not not reference your old code in writing the new style.
 };
 
-
+//create a size method
+Stack.prototype.size = function() {
+  return 0;
+}
