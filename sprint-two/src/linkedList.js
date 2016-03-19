@@ -38,6 +38,15 @@ list.removeHead = function(){
   };
 
   list.contains = function(target){
+    //check list.value
+    console.log(target)
+    console.log(_.filter(list, function(nodes){
+        _.filter(nodes, function(value, key, nodes){
+            if(nodes[key] === target){
+              return true;
+            }
+        });
+    }));
   };
 
   return list;
