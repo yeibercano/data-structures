@@ -16,23 +16,40 @@ var Tree = function(value){
 var treeMethods = {};
 
 treeMethods.addChild = function(value){
-  // newTree.children = null;  // fix me
- // push value into newTree.children
- this.children.push({value:value});
- console.log('children:', this.children)
- this.children.push([{value:value}]);
- console.log('children 2:', this.children)
- // reassing newTree.value to this.children[0];
-  // this.value = this.children[0];
+  //create children trees and push into newchildren array
+  this.children.push(Tree(value));
 };
 
 treeMethods.contains = function(target){
   //check on newTree.children nodes contains the target 
-  return _.some(this.children, function(nodes) {
-    return _.some(nodes, function(value, key, nodes) {
-      return value === target;
-    });
-  });
+  //TRIED WITH _.SOME
+  // var search = function(mainRoot) {
+  //   return _.some(mainRoot, function(nodes) {
+  //       console.log('nodes:', nodes);
+  //       if (nodes.value === target) {
+  //         return true;
+  //       } else {
+  //         return _.some(mainRoot, function(nodes) {
+  //           search(nodes); 
+  //         });
+  //       }
+  //     });
+  // };
+  // search(this)
+
+  var result = false;
+  var search = function(mainRoot) {
+    if (mainRoot.value === target) {
+      result = true;
+    } else {
+      _.each(mainRoot.children, function(nodes){
+        search(nodes);
+      });
+    }
+  }
+
+  search(this)
+  return result
 };
 
 
