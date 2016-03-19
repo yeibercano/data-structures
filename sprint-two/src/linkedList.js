@@ -41,7 +41,7 @@ list.removeHead = function(){
     //check list.value
     // console.log(target)
    return _.some(list, function(nodes){
-     return _.some(nodes, function(value, key, nodes){
+     return _.some(nodes, function(value, key, nodes){ 
         return value === target;
     });
    });

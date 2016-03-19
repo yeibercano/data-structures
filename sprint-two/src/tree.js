@@ -19,6 +19,9 @@ treeMethods.addChild = function(value){
   // newTree.children = null;  // fix me
  // push value into newTree.children
  this.children.push({value:value});
+ console.log('children:', this.children)
+ this.children.push([{value:value}]);
+ console.log('children 2:', this.children)
  // reassing newTree.value to this.children[0];
   // this.value = this.children[0];
 };
