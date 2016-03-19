@@ -24,7 +24,12 @@ treeMethods.addChild = function(value){
 };
 
 treeMethods.contains = function(target){
-
+  //check on newTree.children nodes contains the target 
+  return _.some(this.children, function(nodes) {
+    return _.some(nodes, function(value, key, nodes) {
+      return value === target;
+    });
+  });
 };
 
 
