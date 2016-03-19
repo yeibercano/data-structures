@@ -4,16 +4,25 @@
 
 // Instantiate a new graph
 var Graph = function(){
+  //created container to store addedNode
+  this.allNodes = {};
 };
 
 // ------------------------
 // Add a node to the graph, passing in the node's value.
 Graph.prototype.addNode = function(node){
+  //when invoked a node will be created in this.allNodes
+  this.allNodes[node] = node;
+  
+  //
 };
 
 // ------------------------
 // Return a boolean value indicating if the value passed to contains is represented in the graph.
 Graph.prototype.contains = function(node){
+  // console.log('...alNodes:',this.allNodes);
+  //check if node is in this.allNodes, if so returns true
+  return _.contains(this.allNodes, node);
 };
 
 // ------------------------
