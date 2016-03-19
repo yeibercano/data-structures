@@ -31,7 +31,7 @@ list.removeHead = function(){
   //delete the head node from list object
   // console.log('this is key 4:', list['4'])
   delete list[list.counter];
-  console.log('this is now list:', list);
+  // console.log('this is now list:', list);
   // delete Object.keys(list.head)[Object.keys(list.head)[0]];
   // console.log('list:', list); 
   return list.head.value;
@@ -39,14 +39,23 @@ list.removeHead = function(){
 
   list.contains = function(target){
     //check list.value
-    console.log(target)
-    console.log(_.filter(list, function(nodes){
-        _.filter(nodes, function(value, key, nodes){
-            if(nodes[key] === target){
-              return true;
-            }
-        });
-    }));
+    // console.log(target)
+   return _.some(list, function(nodes){
+     return _.some(nodes, function(value, key, nodes){
+        return value === target;
+    });
+   });
+
+  // var result = false;
+  //   _.each(list, function(nodes){
+  //     _.each(nodes, function(value, key, nodes){
+  //       if(value === target){
+  //         result = true;
+  //       } 
+  //     })
+  //   });
+
+  // return result
   };
 
   return list;
