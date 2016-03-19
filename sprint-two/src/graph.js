@@ -6,6 +6,8 @@
 var Graph = function(){
   //created container to store addedNode
   this.allNodes = {};
+  //creating a container to store allEdges
+  this.allEdges = {};
 };
 
 // ------------------------
@@ -36,11 +38,20 @@ Graph.prototype.removeNode = function(node){
 // ------------------------
 // Returns a boolean indicating whether two specified nodes are connected.  Pass in the values contained in each of the two nodes.
 Graph.prototype.hasEdge = function(fromNode, toNode){
+  //create variable to hold target
+  var target = fromNode+toNode;
+
+  console.log('target: ', target);
+  console.log('allEdges: ', this.allEdges);
+  //check if edge exists in allEdges
+  return _.contains(this.allEdges,target)
 };
 
 // ------------------------
 // Connects two nodes in a graph by adding an edge between them.
 Graph.prototype.addEdge = function(fromNode, toNode){
+  //when invoked will crate new edges and stores in allEdges
+  this.allEdges[fromNode+toNode] = fromNode+toNode;
 };
 
 // ------------------------
