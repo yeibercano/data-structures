@@ -2,40 +2,33 @@ var Stack = function() {
   // Hey! Rewrite in the new style. Your code will wind up looking very similar,
   // but try not not reference your old code in writing the new style.
 
-  // create a counter property to keep track of number of items pushed and pulled
+  //creates a counter
   this.counter = 0;
-  //create a property to hold the new objects being pushed in
-  this.moreObj = {};
-  //create a property to reference the last item in moreObj property
+  //creates a container
+  this.container = {};
+  //create container for last item
   this.last;
 };
 
-// create a push method
-Stack.prototype.push = function(value) {
-  // increase counter incremently whenever push method is invoked
+//creates a size method
+Stack.prototype.push = function(item){
+  //increases counter by 1
   this.counter++;
-  // add the new key value pair to moreObj property
-  this.moreObj[value] = value;
+  //sets item in container
+  this.container[item] = item;
+  // console.log(this);
 };
-
-//create a pop method
-Stack.prototype.pop = function() {
-  // decrement counter by one whenever pop method is invoked
+Stack.prototype.pop = function(item){
+  //decreases counter by 1
+  last = Object.keys(this.container)[Object.keys(this.container).length-1];
+  console.log('pop: ',last);
   this.counter--;
-  //assign variable to reference the last item in moreObj property
-  var lastItem = Object.keys(this.moreObj)[Object.keys(this.moreObj).length - 1]
-  // assign this.last to the last item in moreObj property 
-  this.last = lastItem;
-  //remove the last item in moreObj;
-  delete this.moreObj[lastItem];
-  //return this.last
-  return this.last;
-}
-
-//create a size method
-Stack.prototype.size = function() {
-  //checks to see if this.counter is less than or equal to 0, if it is, return 0, else return this.counter
-  if (this.counter <= 0) {
+  console.log('last:', last);
+  delete this.container[last];
+  return last;
+};
+Stack.prototype.size = function(){
+  if(this.counter <= 0){
     return 0;
   } else {
     return this.counter;
