@@ -5,7 +5,7 @@ describe('graph', function() {
     graph = new Graph();
   });
 
-  it('should have methods named "addNode", "contains", "removeNode", "addEdge", "hasEdge", "removeEdge" and "forEachNode"', function() {
+  xit('should have methods named "addNode", "contains", "removeNode", "addEdge", "hasEdge", "removeEdge" and "forEachNode"', function() {
     expect(graph.addNode).to.be.a("function");
     expect(graph.contains).to.be.a("function");
     expect(graph.removeNode).to.be.a("function");
@@ -15,19 +15,19 @@ describe('graph', function() {
     expect(graph.forEachNode).to.be.a("function");
   });
 
-  it('should store values as nodes that were inserted', function() {
+  xit('should store values as nodes that were inserted', function() {
     graph.addNode('kittens');
     expect(graph.contains('kittens')).to.equal(true);
   });
 
-  it('should remove nodes that were inserted', function() {
+  xit('should remove nodes that were inserted', function() {
     graph.addNode('puppies');
     expect(graph.contains('puppies')).to.equal(true);
     graph.removeNode('puppies');
     expect(graph.contains('puppies')).to.equal(false);
   });
 
-  it('should create edges between two nodes', function() {
+  xit('should create edges between two nodes', function() {
     graph.addNode('puppies');
     graph.addNode('kittens');
     graph.addNode('penguins');
@@ -45,7 +45,7 @@ describe('graph', function() {
     expect(graph.hasEdge('apples', 'satsumas')).to.equal(false);
   });
 
-  it('should execute a callback on each node in the graph', function() {
+  xit('should execute a callback on each node in the graph', function() {
     var connectToSatsumas = function(item) {
       graph.addEdge(item, 'satsumas');
     };
